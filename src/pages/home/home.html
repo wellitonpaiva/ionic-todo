@@ -1,14 +1,41 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+    <ion-title>Todo App</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+  <ion-item>
+    <ion-input [(ngModel)]="todo" placeholder="Insert todo" type="text"></ion-input>
+  </ion-item>
+
+  <button ion-button full (click)="add()">ADD</button>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let t of todos">
+      <ion-item>
+        {{t}}
+      </ion-item>
+
+      <ion-item-options side="left" (ionSwipe)="complete(t)">
+
+      </ion-item-options>
+
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="delete(t)">
+          <ion-icon name="trash"></ion-icon> Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  
+  <h3 *ngIf="completedTodo.length > 0">Completed Todos</h3>
+  <ion-list>
+    <ion-item *ngFor="let t of completedTodo">
+      <ion-item>
+        {{t}}
+      </ion-item>
+    </ion-item>
+  </ion-list>
+
 </ion-content>
