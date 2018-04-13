@@ -1,0 +1,28 @@
+<script src="../../../www/js/app.js"></script>
+<ion-content>
+  <ion-item>
+    <ion-input [(ngModel)]="model.task" placeholder="Insert todo" type="text"></ion-input>
+  </ion-item>
+
+  <button ion-button full (click)="save()">ADD</button>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of todos">
+      <ion-item>
+        {{item.todo.task}} {{item.todo.done}}
+      </ion-item>
+
+      <ion-item-options side="left" (ionSwipe)="complete(item)">
+
+      </ion-item-options>
+
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="delete(item)">
+          <ion-icon name="trash"></ion-icon> Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+
+</ion-content>
