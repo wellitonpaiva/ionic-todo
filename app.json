@@ -1,0 +1,6 @@
+{
+  "name": "Todo Application",
+  "description": "First attempt with Ionic",
+  "repository": "https://github.com/wellitonpaiva/ionic-todo",
+  "keywords": ["ionic3", "heroku"]
+}
